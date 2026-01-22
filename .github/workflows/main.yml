@@ -14,14 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-    - name: -Test SonarQube connectivity
-  env:
-    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-  run: |
-    echo "SONAR_HOST_URL=[$SONAR_HOST_URL]"
-    curl -vk --connect-timeout 5 "$SONAR_HOST_URL/api/system/status"
-
-
       # ---------------- SonarQube Scan ----------------
       - uses: sonarsource/sonarqube-scan-action@master
         env:
